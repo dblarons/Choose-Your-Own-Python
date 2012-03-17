@@ -1,7 +1,14 @@
-print "Welcome!"
-print "Please type in lower case characters."
+print "\nWelcome!"
+print "Please type in lower case characters and ENJOY the game!"
 
-raw_input("To play, please press enter: ")
+print "\nTo see the secret message, type SECRET and press enter."
+print "To play the game without the secret message, just press enter.\n"
+
+hint = raw_input("> ")
+
+if hint == "secret":
+    print "\nEnjoy choosing between travelling north, drinking water, and preparing for battle.\n"
+    raw_input("To play the game, please press enter: ")
 
 print "\nYou wake up in the middle of a green field with the bright morning sun shining on your face."
 print "Beside you lie a rustic sword, an empty bottle, and a pair of clothes with a small traveling bag."
@@ -12,7 +19,7 @@ items = raw_input("> ")
 if items == "yes":
     print "\nYou put on the clothes, strap the sword around your belt, and place the bottle \nin your traveling bag."
     print "Still in a haze and suffering from memory loss, you take a brief look around."
-    print "To your LEFT is a small brook, and to your RIGHT is a mysteriously cloaked figure."
+    print "\nTo your LEFT is a small brook, and to your RIGHT is a mysteriously cloaked figure."
     print "In which direction do you wish to travel?\n"
 
     brook_man = raw_input("> ")
@@ -24,12 +31,11 @@ if items == "yes":
         brook_fill_follow = raw_input("> ")
 
         if brook_fill_follow == "fill":
-            print "\nYou crouch down and fill your bottle."
-            print "You are suddenly stabbed in the back.\n"
+            print "\nYou crouch down to fill your bottle, but are tragically stabbed in the back!!\n"
             print "THE END. \n" # END OF GAME
 
         elif brook_fill_follow == "follow":
-            print "\nYou follow the stream north and try to remember your past."
+            print "\nYou follow the stream north and try to remember who you are."
             print "As you walk, you notice that the hooded figure you saw earlier is following you. \n"
             print "1. Keep walking NORTH and ignore him."
             print "2. Draw your sword and prepare for BATTLE."
@@ -42,15 +48,24 @@ if items == "yes":
                 print "Just as you remember your name, you are stabbed in the back and die."
                 print "THE END. \n" # END OF GAME
 
+            elif follow == "enjoy":
+                print "Please answer this simple question: "
+                print "What is the derivative of ln(x+2)?"
+
+                derivative = raw_input("> ")
+
+                if derivative == "1/(x+2)":
+                    print "You have won the game utilizing the secret password!"
+
             elif follow == "battle" or follow == "drink":
                 print "\nYou turn and approach the hooded figure."
-                print "As you near him, he removes his hood and you are knocked back by a sudden flood of memories. \n"
+                print "As you draw near him, he removes his hood and you are knocked back by a sudden flood of memories. \n"
                 name = raw_input("You remember that your name is ")
                 print "\n\"%s,\" the man shouts." % name
                 print "You remember that the man is your elder brother, and that you \nrecently went on an adventure with him."
                 print "\"What happened to you?\" he asks.\n"
                 print "1. I don't know! My memory is GONE."
-                print "2. You're a liar! I know that you're the WIZARD.\n"
+                print "2. You're a liar! I know you're the WIZARD.\n"
 
                 gone_wizard = raw_input("> ")
                 if gone_wizard == "gone":
@@ -80,8 +95,8 @@ beloved brother away. """
             print "THE END. \n" # END OF GAME
 
     elif brook_man == "right":
-        print "\nYou draw near the hooded figure and grasp your archaic sword with your right hand."
-        print "You recognize this man, although you do not know from where. \n"
+        print "\nYou draw near the hooded figure and grasp your archaic sword in your right hand."
+        print "You recognize this man, but cannot remember his name. \n"
         print "1: GREET the man as a fellow traveller."
         print "2: DRAW your sword and face the man in battle."
         print "3: RUN away.\n"
@@ -91,6 +106,7 @@ beloved brother away. """
         if man_interact == "greet" or man_interact == "draw" or man_interact == "run":
             print "\nYou are killed by the designer."
             print "THE END. \n" # END OF GAME
+            
         else:
             print "\nYou die from unknown causes."
             print "THE END. \n" # END OF GAME
