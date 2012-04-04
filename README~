@@ -1,0 +1,11 @@
+Choose Your Own Python is a collection of "Choose-Your-Own" adventure games written in python. To run, install Python to your computer and execute one of the .py files. Alternatively, you can install IDLE, a python scripting program, and run it from there. 
+
+Games included:
+
+1. Choose-Your-Own-Python 
+
+    (Choose-Your-Own-Python.py)
+
+2. The Durg Dominion
+
+    (durgdominion.py)
