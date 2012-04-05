@@ -78,7 +78,7 @@ def door_one():
 
     if dead_soldier == "1" or "2":
         door_one = True
-        print "You are scared but you approach the man and hope for the best."
+        print "You are frightened, but you approach the man and hope for the best."
         print "As you draw near him, he suddenly opens his eyes."
         print "1. Shoot him"
         print "2. Talk to him"
@@ -87,6 +87,8 @@ def door_one():
 
         if shoot_soldier == "1":
             print "You shoot the man and leave the room."
+            global kill_count
+            kill_count = kill_count + 1
             chapter_two()
 
         elif shoot_soldier == "2":
@@ -99,9 +101,14 @@ def door_one():
     
 
 def chapter_two():
-    print "CHAPTER TWO: CURIOSITY KILLED THE CAT"
-    print "You search the abandoned bridge for a few minutes."
-    print "You find a few dead soldiers and some ripped up papers, but you do not remember what happened here."
+    global begin_chapter_two
+    while begin_chapter_two == True:
+        print "CHAPTER TWO: CURIOSITY KILLED THE CAT"
+        print "You search the abandoned bridge for a few minutes."
+        print "You find a few dead soldiers and some ripped up papers, but you do not remember what happened here."
+        global begin_chapter_two
+        begin_chapter_two = False
+        
     print "You stand in front of 3 closed doors."
     print "1. Door 1"
     print "2. Door 2"
@@ -132,6 +139,8 @@ def long_hallway():
     the_scream = raw_input("> ")
 
     if the_scream == "1":
+        global begin_chapter_two
+        begin_chapter_two = True
         chapter_two()
 
     elif the_scream == "2":
@@ -147,6 +156,8 @@ def long_hallway():
             dead("The designer eliminates you for being a weeny.")
 
         elif barricade == "2":
+            global begin_chapter_two
+            begin_chapter_two = True
             chapter_two()
 
         else:
@@ -154,7 +165,7 @@ def long_hallway():
             long_hallway()
 
     else:
-        print "Do you eat %r? Yeah, I thought so. So don't type it." % the_scream
+        print "Does your mother let you eat %r? Yeah, I didn't think so. So don't type it." % the_scream
         long_hallway()
 
             
@@ -173,12 +184,14 @@ def stay_and_look():
         lightsaber = raw_input("> ")
 
         if lightsaber == "yes":
-            lightsaber = "and lightsaber"
+            global lightsaber
+            lightsaber = True
             print "You take the lightsaber and leave the room."
             open_door()
 
         else:
-            lightsaber = ""
+            global lightsaber
+            lightsaber = False
             print "You leave the lightsaber and exit the room."
             open_door()
 
@@ -227,6 +240,7 @@ def leave_items():
     items = raw_input("> ")
 
     if items == "1":
+        global blaster
         blaster = True
         chapter_one()
 
@@ -242,12 +256,22 @@ def start():
     print "1. Take the items"
     print "2. Leave the items"
 
+    global lightsaber
+    lightsaber = False
+
+    global kill_count
+    kill_count = 0
+    
+    global blaster
+    blaster = False
+
     items = raw_input("> ")
 
     if items == "2":
         leave_items()
 
     elif items == "1":
+        global blaster
         blaster = True
         chapter_one()
 
@@ -257,8 +281,14 @@ def start():
 
 
 def dead(why):
+    print "\n"
     print why, "Good job!"
-    print "Would you like to play again?"
+    global kill_count
+    print "Your kill count is %d" % kill_count
+
+    #Add if else statement here that grades you on your kill count. Lower being better.
+    
+    print "\nWould you like to play again?"
 
     replay = raw_input("> ")
 
