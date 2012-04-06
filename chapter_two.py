@@ -1,3 +1,6 @@
+from sys import exit
+import chapter_three
+
 def door_three():
     print "You enter the third door to find three wounded soldiers."
     print "You draw your blaster."
@@ -7,10 +10,10 @@ def door_three():
     three_hostages = raw_input("> ")
 
     if three_hostages == "1":
-        chapter_three_alt()
+        chapter_three.chapter_three_alt
 
     elif three_hostages == "2":
-        chapter_three()
+        chapter_three.chapter_three
 
     else:
         print "Seriously? All you had to choose between was 1 and 2, but there you go again, choosing %r" % three_hostages

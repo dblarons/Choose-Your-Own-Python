@@ -1,3 +1,6 @@
+import chapter_two
+from sys import exit
+
 def long_hallway():
     print "You walk down the long hallway and through the broken door into the main deck of the ship."
     print "Suddenly you hear a scream."
