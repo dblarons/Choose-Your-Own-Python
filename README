@@ -6,8 +6,8 @@ Games included:
 
     (Choose-Your-Own-Python.py)
 
-2. The Durg Dominion
+2. Space Adventure
 
-    (durgdominion.py)
+    (spaceadventure.py)
 
 Note: spaceadventure.py is currently in the process of being separated into distinct files based on the chapters in the game. In order to play the game, you can still run spaceadventure.py, or you can try downloading chapter_one.py, chapter_two.py, chapter_three.py, and main.py, putting them into one folder together, and executing main.py.
