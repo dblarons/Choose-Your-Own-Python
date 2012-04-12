@@ -146,6 +146,6 @@ def dead(why):
     else:
         exit()
 
-print "\nThank you for playing The Durg Dominion!\n"
+print "\nThank you for playing Space Adventure!\n"
 
 start()
