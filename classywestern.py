@@ -10,7 +10,7 @@ class Game(object):
 
         # initializes the self.lols variable
         self.lols = [
-            "My dog can beat this game.",
+            "You lost? My dog can even beat this game.",
             "Were you even trying?",
             "Nice try. Wait no, nevermind."
         ]
@@ -37,16 +37,20 @@ class Game(object):
             a_game = Game("chapter_one")
             a_game.play()
 
+	elif replay == 'no':
+	    exit(1)
+
         else:
-            exit(1)
+            print "I don't know what %s means." % replay
+	    return 'death'
 
     def chapter_one(self):
         print "You are riding your horse alongside a speeding train."
         print 'You and your gang, "The yellow monkeys", are about'
-        print "to hold up the train and take all the valuables that"
-        print "you can get."
+        print "to hold up the passengertrain and take all the valuables that"
+        print "you can get your grubby hands on."
         print "\n"
-        print "As you pass by the first passanger car a security"
+        print "As you pass by the first passenger car a security"
         print "officer pulls out his colt pistol and takes aim...."
         print "AT YOU!!!!"
         
@@ -96,7 +100,7 @@ class Game(object):
             print "before you leap onto the horse."
             print "\n"
             print "You made it!"
-            print "You land face down on the top of the second passanger"
+            print "You land face down on the top of the second passenger"
             print "car. There is a hatch on the top of the car, but it"
             print "is protected by a rustic 1 digit code."
             print "If you get the code wrong 8 times, you will be locked"
@@ -114,13 +118,60 @@ class Game(object):
             if guess == code:
                 print "The hatch clicks open!"
                 print "You climb into the second passenger car."
-                return 'inside train'
+                return 'inside_train'
 
             else:
                 print "The lock buzzes the last time and you are locked"
                 print "out and stuck on the top of the train."
                 print "You lose."
                 return 'death'
+
+	else:
+		print "How am I supposed to know what %s means?" % action
+		return 'second_car'
+
+
+    def inside_train(self):
+	print "You look around to see frightened passengers shaking in"
+	print "their seats. You pull out your colt revolver and fire a few"
+	print "shots into the ceiling to show that your the real deal."
+	print "\n"
+	print 'You yell over the chugging train engines, "Everyone,'
+	print 'put your valuables in the center isles. If I find out that'
+	print 'ANYONE is hiding theirs from me, I will shoot them myself."'
+	print 'One passenger jumps out of his seat and hurls himself toward you.'
+	
+	action = raw_input("> ")
+
+	if action == "dodge" or "duck":
+	    print "You attempt to dodge the large man who hurtles"
+	    print "toward you. You dive into the passenger seat beside"
+	    print "you and cover your head. Suddenly, the woman in"
+	    print "the seat that you just jumped into grabs your colt"
+	    print "and aims it at your head."
+	    print "You lose."
+	    return 'death'
+
+	elif action == "shoot" or "kill him":
+	    print "You quickly grab your colt and shoot the man who"
+	    print "hurdles toward you. His body crashes down on you"
+	    print "and knocks your colt onto the floor. Struggling to"
+	    print "stand up, you see a brave woman reach for the"
+	    print "revolver and aim it at you."
+	    print "You lose."
+
+	elif action == "take hostage":
+	    print "Reacting quickly, you grab the pretty young lady"
+	    print "who sits in the seat next to where you are standing."
+	    print "You hold her in front of her with the gun to her neck."
+	    print "The man who is hurtling toward you sees this and"
+	    print "turns to miss you and the young lady."
+	    print "Deciding that you might be safer with a hostage,"
+	    print "you decide to bring her along."
+	    return 'third car'
+
+	else:
+	    print "Sorry, doing %s is not an option." % action
             
         
 
